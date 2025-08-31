@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-indigo-600 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">
+                🎓 Student Management
+            </h1>
+            <div class="space-x-6">
+                <a href="{% url 'home' %}" class="hover:text-yellow-300 transition">Home</a>
+                <a href="{% url 'students_list' %}" class="hover:text-yellow-300 transition">Students</a>
+                <a href="{% url 'add_student' %}" class="hover:text-yellow-300 transition">Add Student</a>
+                <a href="{% url 'add_course' %}" class="hover:text-yellow-300 transition">Add Course</a>
+                <a href="{% url 'search_student' %}" class="hover:text-yellow-300 transition">Search Student</a>
+                <a href="/admin/" class="bg-yellow-400 text-indigo-900 px-3 py-1 rounded-lg font-semibold hover:bg-yellow-300 transition">
+                    Admin
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-600 text-white text-center py-4 mt-10">
+        <p>&copy; {{ now|date:"Y" }} Student Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

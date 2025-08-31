@@ -1,0 +1,18 @@
+{% extends 'management/Layout/base.html' %}
+{% block content %}
+<h2>{{ student.name }}</h2>
+<p>Age: {{ student.age }}</p>
+<p>Email: {{ student.email }}</p>
+{% if student.photo %}
+<img src="{{ student.photo.url }}" width="100">
+{% endif %}
+
+<h3>Enrolled Courses:</h3>
+<ul>
+    {% for enrollment in student.enrollment_set.all %}
+    <li>{{ enrollment.course.title }} - {{ enrollment.date }}</li>
+    {% empty %}
+    <li>Not enrolled in any course.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

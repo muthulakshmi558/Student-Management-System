@@ -1,0 +1,16 @@
+{% extends 'management/Layout/base.html' %}
+{% block content %}
+<h2>All Students</h2>
+<ul>
+    {% for student in students %}
+    <li>
+        <a href="{% url 'student_detail' student.pk %}">{{ student.name }}</a>
+        {% if student.photo %}
+            <img src="{{ student.photo.url }}" width="50" height="50">
+        {% endif %}
+    </li>
+    {% empty %}
+    <li>No students found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
